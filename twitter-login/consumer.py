@@ -1,3 +1,4 @@
+import bcrypt
 from kafka import KafkaConsumer
 from models import TaskStatus, UserCredentials as UC
 import json
@@ -15,12 +16,13 @@ async def consume_messages():
     for message in consumer:
         task_id = message.value['task_id']
         credentials = message.value['credentials']
+
         user = await UC.find_one({
             "username": credentials["username"],
-            "password": credentials["password"],
             "phone_number": credentials["phone_number"]
         })
-        if user:
+
+        if user and bcrypt.checkpw(credentials["password"].encode('utf-8'), user["password"].encode('utf-8')):
             status = "success"
         else:
             status = "failure"

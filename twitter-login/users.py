@@ -1,6 +1,6 @@
 from fastapi import HTTPException
 from models import UserCredentials, UserReq, TaskStatus
-
+from utils import hash_password
 async def add_user(request: UserReq):
 
         username = await UserCredentials.find_one({"username":request.username})
@@ -15,7 +15,12 @@ async def add_user(request: UserReq):
             if email:
                 raise HTTPException(status_code=400, detail="email already exists")
 
-        new_user = UserCredentials(**request.dict())
+        hashed_password = hash_password(request.password)
+
+        new_user = request.dict()
+        new_user["password"] = hashed_password
+        new_user = UserCredentials(**new_user)
+
         await new_user.insert()
         return {"message": "User created successfully"}
 
