@@ -30,3 +30,6 @@ async def get_all_users():
 
 async def get_all_tasks():
     return await TaskStatus.find_all().to_list()
+
+async def get_by_id(task_id):
+    return await TaskStatus.find_one({"task_id": task_id})
