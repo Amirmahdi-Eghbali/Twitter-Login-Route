@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f2709bd7-9f5f-463a-bbb8-34c28d75333f" name="Changes" comment="feat: integrate Kafka consumer and task status tracking&#10;&#10;- Added Kafka consumer to process login requests and validate user credentials&#10;- Implemented task status storage in the database using the `TaskStatus` model&#10;- Integrated task processing with FastAPI lifecycle using `asyncio.create_task` but it has some problems&#10;- Added `/get-tasks` endpoint to retrieve all task statuses">
-      <change afterPath="$PROJECT_DIR$/twitter-login/utils.py" afterDir="false" />
+    <list default="true" id="f2709bd7-9f5f-463a-bbb8-34c28d75333f" name="Changes" comment="Add detailed README.md to document project setup, structure, and usage">
+      <change afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/twitter-login/consumer.py" beforeDir="false" afterPath="$PROJECT_DIR$/twitter-login/consumer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/twitter-login/producer.py" beforeDir="false" afterPath="$PROJECT_DIR$/twitter-login/producer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/twitter-login/users.py" beforeDir="false" afterPath="$PROJECT_DIR$/twitter-login/users.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,13 +92,40 @@
       <option name="project" value="LOCAL" />
       <updated>1736119204641</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Add bcrypt password hashing and verification, update user creation and login process&#10;&#10;- Implemented password hashing with bcrypt&#10;- Updated `add_user` function to hash passwords before saving them to the database.&#10;- Added password verification logic in `consume_messages` when processing login requests.">
+      <option name="closed" value="true" />
+      <created>1736120169814</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1736120169814</updated>
+    </task>
+    <task id="LOCAL-00005" summary="feat: Add JWT authentication and authorization&#10;&#10;- Integrated JWT for user authentication and token-based authorization.&#10;- Created utility functions for JWT generation (`create_jwt`) and verification (`verify`).&#10;- Secured endpoints (`get-tasks`, `get-by-id`, `current-user`) using FastAPI's dependency injection and JWT verification.&#10;- Added `/current-user` endpoint to retrieve current user details from the JWT payload.&#10;- Updated `/twitter-login` to return a JWT token upon successful login.">
+      <option name="closed" value="true" />
+      <created>1736369630587</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1736369630587</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Add detailed README.md to document project setup, structure, and usage">
+      <option name="closed" value="true" />
+      <created>1736371061578</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1736371061578</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit" />
     <MESSAGE value="feat: implement user creation with unique constraints&#10;&#10;- Added logic to ensure username, phone_number, and email are unique during user creation&#10;- creating `add_user` function to validate input data before insertion&#10;- Added FastAPI endpoints for:&#10;  - Adding a new user (`POST /add-user`)&#10;  - Retrieving all users (`GET /get-users`)&#10;- Integrated `lifespan` to manage database connection initialization" />
     <MESSAGE value="feat: integrate Kafka consumer and task status tracking&#10;&#10;- Added Kafka consumer to process login requests and validate user credentials&#10;- Implemented task status storage in the database using the `TaskStatus` model&#10;- Integrated task processing with FastAPI lifecycle using `asyncio.create_task` but it has some problems&#10;- Added `/get-tasks` endpoint to retrieve all task statuses" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: integrate Kafka consumer and task status tracking&#10;&#10;- Added Kafka consumer to process login requests and validate user credentials&#10;- Implemented task status storage in the database using the `TaskStatus` model&#10;- Integrated task processing with FastAPI lifecycle using `asyncio.create_task` but it has some problems&#10;- Added `/get-tasks` endpoint to retrieve all task statuses" />
+    <MESSAGE value="Add bcrypt password hashing and verification, update user creation and login process&#10;&#10;- Implemented password hashing with bcrypt&#10;- Updated `add_user` function to hash passwords before saving them to the database.&#10;- Added password verification logic in `consume_messages` when processing login requests." />
+    <MESSAGE value="feat: Add JWT authentication and authorization&#10;&#10;- Integrated JWT for user authentication and token-based authorization.&#10;- Created utility functions for JWT generation (`create_jwt`) and verification (`verify`).&#10;- Secured endpoints (`get-tasks`, `get-by-id`, `current-user`) using FastAPI's dependency injection and JWT verification.&#10;- Added `/current-user` endpoint to retrieve current user details from the JWT payload.&#10;- Updated `/twitter-login` to return a JWT token upon successful login." />
+    <MESSAGE value="Add detailed README.md to document project setup, structure, and usage" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add detailed README.md to document project setup, structure, and usage" />
   </component>
 </project>
